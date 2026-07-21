@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SoloHidro ERP</title>
+<meta name="theme-color" content="#0b3159">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SoloHidro">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  html,body{margin:0;height:100%;background:#0b3159;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#eaf2fb;-webkit-tap-highlight-color:transparent}
+  .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;gap:14px;box-sizing:border-box}
+  .mark{width:120px;height:120px;border-radius:26px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.25);margin-bottom:6px}
+  .mark img{width:88px;height:88px;object-fit:contain}
+  h1{margin:0;font-size:24px;font-weight:700;letter-spacing:.3px}
+  p{margin:0;color:#7fa2c4;font-size:13px}
+  a.btn{margin-top:14px;background:#00b4d8;color:#062a3d;text-decoration:none;font-weight:700;padding:13px 30px;border-radius:26px;font-size:15px;display:inline-flex;align-items:center;gap:8px}
+  a.btn:active{transform:scale(.98)}
+  .hint{margin-top:8px;color:#5f86ab;font-size:11px;max-width:290px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark"><img src="icon-512.png" alt="SoloHidro"></div>
+  <h1>SoloHidro ERP</h1>
+  <p>Sistema de Gestão</p>
+  <a class="btn" id="open" href="#">Abrir o ERP &rsaquo;</a>
+  <div class="hint">Toque em &vellip; &rsaquo; "Adicionar à tela inicial" para instalar o atalho com este ícone.</div>
+</div>
+<script>
+  var ERP="https://script.google.com/macros/s/AKfycbxP-aiPavTC6QMnO7cXmB1y7DCdPz1NwmalFYKhxlr31mN2tMBtlJv2SaXviSP6nFRE/exec";
+  document.getElementById('open').href=ERP;
+  var p=new URLSearchParams(location.search);
+  var standalone=window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches;
+  if(p.get('app')==='1'||standalone){ location.replace(ERP); }
+</script>
+</body>
+</html>
