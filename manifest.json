@@ -1,8 +1,8 @@
 {
-  "name": "SoloHidro ERP",
+  "name": "Sistemas SoloHidro",
   "short_name": "SoloHidro",
-  "description": "Sistema de Gestão SoloHidro Engenharia",
-  "start_url": "./?app=1",
+  "description": "Atalho para os sistemas da SoloHidro Engenharia",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",

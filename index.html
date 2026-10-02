@@ -1,68 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SoloHidro ERP</title>
+<title>Sistemas SoloHidro</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#0b3159">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="SoloHidro">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  html,body{margin:0;height:100%;background:#0b3159;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#eaf2fb;-webkit-tap-highlight-color:transparent}
-  .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;gap:14px;box-sizing:border-box}
-  .mark{width:120px;height:120px;border-radius:26px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.25);margin-bottom:6px}
-  .mark img{width:88px;height:88px;object-fit:contain}
-  h1{margin:0;font-size:24px;font-weight:700;letter-spacing:.3px}
-  p{margin:0;color:#7fa2c4;font-size:13px}
-  .btns{display:flex;flex-direction:column;gap:10px;margin-top:14px;width:100%;max-width:280px}
-  button.b{border:none;font-weight:700;padding:13px 24px;border-radius:26px;font-size:15px;cursor:pointer}
-  .b-open{background:#00b4d8;color:#062a3d}
-  .b-inst{background:#f6a93b;color:#3a2400;display:none}
-  .b:active{transform:scale(.98)}
-  .hint{margin-top:8px;color:#5f86ab;font-size:11.5px;max-width:300px;line-height:1.55}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#0b3159;color:#eaf1f8;
+     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+     min-height:100vh;padding:max(26px,env(safe-area-inset-top)) 16px
+     max(26px,env(safe-area-inset-bottom))}
+.wrap{max-width:560px;margin:0 auto}
+header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+header img{width:44px;height:44px;border-radius:10px;background:#fff;padding:3px}
+header h1{font-size:1.12rem;margin:0;font-weight:650;letter-spacing:.2px}
+header p{margin:2px 0 0;font-size:.78rem;color:#9fb6cd}
+.faixa{height:3px;border-radius:2px;margin:14px 0 18px;
+       background:linear-gradient(90deg,#1769b0,#00b4d8 55%,#f6a93b)}
+.grupo{font-size:.7rem;text-transform:uppercase;letter-spacing:1.1px;color:#7f98b2;
+       margin:20px 2px 8px;font-weight:600}
+a.app{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit;
+      background:#13406f;border:1px solid #1d5287;border-radius:13px;
+      padding:14px 15px;margin-bottom:9px;transition:transform .08s,background .15s}
+a.app:active{transform:scale(.985);background:#17487d}
+.ic{width:40px;height:40px;flex:0 0 40px;border-radius:10px;display:grid;place-items:center;
+    font-size:1.18rem;font-weight:700;color:#06233d}
+/* O texto precisa ser BLOCO e poder encolher: como span inline dentro do flex,
+   o nome colava na descrição e a linha vazava para fora da tela no celular. */
+.txt{flex:1;min-width:0}
+.nm{display:block;font-weight:600;font-size:.97rem;line-height:1.25}
+.ds{display:block;font-size:.775rem;color:#a7bdd2;margin-top:3px;line-height:1.35;
+     overflow-wrap:anywhere}
+body{overflow-x:hidden}
+.tag{display:inline-block;font-size:.63rem;padding:1px 6px;border-radius:5px;
+     background:#f6a93b;color:#3d2a06;font-weight:700;margin-left:6px;vertical-align:1px}
+footer{margin-top:26px;font-size:.72rem;color:#6f87a1;text-align:center;line-height:1.6}
+@media(min-width:620px){a.app{padding:16px 17px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="mark"><img src="icon-512.png" alt="SoloHidro"></div>
-  <h1>SoloHidro ERP</h1>
-  <p>Sistema de Gestão</p>
-  <div class="btns">
-    <button class="b b-inst" id="inst">Instalar na tela inicial</button>
-    <button class="b b-open" id="open">Abrir o ERP &rsaquo;</button>
-  </div>
-  <div class="hint" id="hint">Para instalar com o ícone da SoloHidro: toque em &vellip; (menu do Chrome) &rsaquo; <b>Instalar app</b>.</div>
+  <header>
+    <img src="icon-192.png" alt="">
+    <div>
+      <h1>Sistemas SoloHidro</h1>
+      <p>toque para abrir</p>
+    </div>
+  </header>
+  <div class="faixa"></div>
+
+  <div class="grupo">Dia a dia</div>
+
+  <a class="app" href="https://script.google.com/macros/s/AKfycbxP-aiPavTC6QMnO7cXmB1y7DCdPz1NwmalFYKhxlr31mN2tMBtlJv2SaXviSP6nFRE/exec" target="_top">
+    <span class="ic" style="background:#00b4d8">SH</span>
+    <span class="txt">
+      <span class="nm">ERP SoloHidro</span>
+      <span class="ds">O sistema de todo dia: clientes, poços, propostas, serviços, financeiro, licenciamento.</span>
+    </span>
+  </a>
+
+  <a class="app" href="https://monitoramento-vazao-pocos.vercel.app" target="_blank" rel="noopener">
+    <span class="ic" style="background:#4cc9f0">MV</span>
+    <span class="txt">
+      <span class="nm">Monitoramento de Vazão</span>
+      <span class="ds">Telemetria dos poços — leitura de vazão e acompanhamento.</span>
+    </span>
+  </a>
+
+  <div class="grupo">Em implantação</div>
+
+  <a class="app" href="https://erp-solohidro.vercel.app" target="_blank" rel="noopener">
+    <span class="ic" style="background:#f6a93b">ER</span>
+    <span class="txt">
+      <span class="nm">ERP Robusto<span class="tag">novo</span></span>
+      <span class="ds">O ERP do grupo, por empresa: Administrare, SHX, Iapo e Metron. Cadastro, comercial, financeiro e partilha.</span>
+    </span>
+  </a>
+
+  <a class="app" href="https://notinhas.vercel.app" target="_blank" rel="noopener">
+    <span class="ic" style="background:#7ee081">NT</span>
+    <span class="txt">
+      <span class="nm">Notinhas</span>
+      <span class="ds">Prestação de contas: fotografar a nota e fechar a viagem ou o serviço.</span>
+    </span>
+  </a>
+
+  <div class="grupo">Metron</div>
+
+  <a class="app" href="https://metron-coral.vercel.app" target="_blank" rel="noopener">
+    <span class="ic" style="background:#b8c6d4">MT</span>
+    <span class="txt">
+      <span class="nm">Metron</span>
+      <span class="ds">Equipamento e plataforma de monitoramento e ensaio de bombeamento.</span>
+    </span>
+  </a>
+
+  <footer>
+    SoloHidro Engenharia<br>
+    Guarde esta página na tela inicial — ela abre todos os sistemas.
+  </footer>
 </div>
+
 <script>
-  var ERP="https://script.google.com/macros/s/AKfycbxP-aiPavTC6QMnO7cXmB1y7DCdPz1NwmalFYKhxlr31mN2tMBtlJv2SaXviSP6nFRE/exec";
-  var standalone=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone;
-  var p=new URLSearchParams(location.search);
-  // App já instalado (abriu em tela cheia) ou atalho ?app=1 -> vai direto pro ERP
-  if(p.get('app')==='1'||standalone){ location.replace(ERP); }
-
-  document.getElementById('open').addEventListener('click',function(){ location.href=ERP; });
-
-  // Botão instalar (Chrome Android dispara beforeinstallprompt quando é instalável)
-  var deferred=null;
-  window.addEventListener('beforeinstallprompt',function(ev){
-    ev.preventDefault(); deferred=ev;
-    var b=document.getElementById('inst'); b.style.display='block';
-    document.getElementById('hint').innerHTML='Toque em <b>Instalar na tela inicial</b> para adicionar o app com o ícone da SoloHidro.';
-  });
-  document.getElementById('inst').addEventListener('click',function(){
-    if(!deferred) return;
-    deferred.prompt();
-    deferred.userChoice.finally(function(){ deferred=null; document.getElementById('inst').style.display='none'; });
-  });
-  window.addEventListener('appinstalled',function(){ document.getElementById('inst').style.display='none'; });
-
-  if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
+// O ERP antigo roda dentro de um iframe do Apps Script: abrir com target="_top"
+// é a única navegação que o sandbox sempre permite (lição do incidente de
+// 01/10/2026, quando location.reload() deixou a tela branca).
+// Os demais são páginas normais e abrem em aba nova.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+}
 </script>
 </body>
 </html>
